@@ -1,0 +1,72 @@
+﻿@model Webbutveckling_med_.NET___Projekt.Models.Person
+
+
+@{
+	ViewData["Title"] = "Dog Application";
+}
+
+<div class="container">
+
+	<h1>Application</h1>
+	<p>Fill in your information and send in your application to reserve <span class="name">@ViewBag.Dog.Name</span></p>
+	<hr />
+	<div class="row">
+		<div class="formWrapper">
+			<form asp-action="Create" class="dogPerson">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<!--Firstname-->
+				<div class="form-group">
+					<label asp-for="Firstname" class="control-label">Firstname:</label>
+					<input asp-for="Firstname" class="form-control" />
+					<span asp-validation-for="Firstname" class="text-danger"></span><br><br>
+				</div>
+				<!--Lastname-->
+				<div class="form-group">
+					<label asp-for="Lastname" class="control-label">Lastname:</label>
+					<input asp-for="Lastname" class="form-control" />
+					<span asp-validation-for="Lastname" class="text-danger"></span><br><br>
+				</div>
+				<!--Phone-->
+				<div class="form-group">
+					<label asp-for="PhoneNr" class="control-label">Phone Number:</label>
+					<input asp-for="PhoneNr" class="form-control" />
+					<span asp-validation-for="PhoneNr" class="text-danger"></span><br><br>
+				</div>
+				<!--Email-->
+				<div class="form-group">
+					<label asp-for="Email" class="control-label">E-mail:</label>
+					<input asp-for="Email" class="form-control" />
+					<span asp-validation-for="Email" class="text-danger"></span><br><br>
+				</div>
+				<!--City-->
+				<div class="form-group">
+					<label asp-for="City" class="control-label">City:</label>
+					<input asp-for="City" class="form-control" />
+					<span asp-validation-for="City" class="text-danger"></span><br><br>
+				</div>
+				<!--Description-->
+				<div class="form-group">
+					<label asp-for="Description" class="control-label">Description:</label>
+					<textarea asp-for="Description" class="form-control" rows="5" placeholder="Tell us a little about who you are and your living situation..."></textarea>
+					<span asp-validation-for="Description" class="text-danger"></span><br><br>
+				</div>
+				<!--Hidden-->
+				<div class="form-group">
+					<input asp-for="DogId" class="form-control" type="hidden" value="@ViewBag.DogId" />
+					<span asp-validation-for="DogId" class="text-danger"></span><br><br>
+				</div>
+
+				<div class="form-group">
+					<input type="submit" value="Apply" class="btn btn-primary" /><br><br>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+	}
+
+</div>

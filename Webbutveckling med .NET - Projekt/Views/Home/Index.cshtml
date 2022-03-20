@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<Dog>;
+
+    
+<div class="banner">
+    <img  src="~/pics/banner3.jpg"  />
+</div>
+
+<div class="bannerText"><p>Voff Rescue</p></div>
+
+<div class="bannerText2"><p>Adopt a dog. Save a life. Gain a friend.</p></div>
+
+<div class="bannerText3"><h2>Dogs in focus ⬇</h2></div>
+
+<div class="focus">
+
+        @foreach (var dog in Model)
+        {
+             
+            <div class="dogFocus">
+                <a asp-controller="Dogs" asp-action="Details" asp-route-id="@dog.DogId">
+                <img src="~/pics/@dog.Pic" alt="🐶" class="@(dog.Pic == "default.png" ? "picDefault" : "picCustom")">
+                </a>
+                <div class="text">
+                    <p>@dog.Name</p>
+                </div>
+            </div>
+        }
+</div>
+
+<div class="infoBoxes">
+    <div class="box">
+        <h3>Apply</h3>
+        <p>View our dogs that are looking for new homes under <a href="/Home/OurDogs">Our Dogs</a>. Once you've found the dog you are interested in you 
+            can fill out a form and submit an application that will be reviewed by Voff Rescues staff.</p>
+    </div>
+    <div class="box">
+        <h3>Dog Date</h3>
+        <p>Once your application has been reviewed and accepted by our staff a dog date will be scheduled and take place at Voff Rescue. The dog date is 
+            to make sure that you and your dog are a good fit. The dog date will be supervised by the dogs assigned handler to make sure everything goes 
+            smoothly and to answer any questions. </p>
+    </div>
+    <div class="box">
+        <h3>Home Visit</h3>
+        <p>The last step in our adoption process is a home visit to make sure that the dog will end up in a suitable environment. The visit will take 
+            place on an agreed opon date that fits both you and our staff.</p>
+    </div>
+</div>

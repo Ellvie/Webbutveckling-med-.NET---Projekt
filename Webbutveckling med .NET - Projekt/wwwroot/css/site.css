@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Delius+Unicase:wght@700&family=Homemade+Apple&family=Long+Cang&family=Nothing+You+Could+Do&family=Over+the+Rainbow&family=Pangolin&family=Rock+Salt&family=Sedgwick+Ave+Display&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*General -----------------------------------------------------*/
+body {
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7em;
+    background-color: #2f9503;
+    background-image: linear-gradient(45deg, #f8fef5, #c8fbce);
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin: auto auto 0 auto;
+    padding: 2em 0;
+    width: 90%;
+    text-align: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 2em;
+    width: 30%;
+}
+
+.logoPic {
+    max-height: 50px;
+    max-width: 50px;
+    margin: 0 2em 0 0;
+}
+
+.logoText {
+    font-family: 'Long Cang', cursive;
+    font-size: 2em;
+}
+
+.miniPic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 25px;
+    max-width: 25px;
+    margin: 0 1em 0 0;
+}
+
+.logout {
+    background-color: white !important;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 2em;
+    align-items: center;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.banner {
+    position: relative;
+    margin: -5em 0 0 0;
+}
+
+
+
+.header {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin: 3.5em auto 0 auto;
+}
+
+    .header h2 {
+        transform: rotate(-10deg);
+        margin: 0.5em 0 0 0;
+    }
+
+.ourDogs {
+    background-color: #8fc37b;
+}
+
+.about {
+    background-color: #ffd437;
+}
+
+.contact {
+    background-color: #78c5ff;
+}
+
+
+.headerPic {
+    display: block;
+    height: 200px;
+    width: auto;
+}
+
+.container {
+    margin: 5em auto 0 auto;
+    padding: 2em;
+    width: 50%;
+}
+
+.dogWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 2em 0;
+    flex-wrap: wrap;
+}
+
+.dog {
+    margin-top: 2em;
+    width: 25%;
+    border: 1px solid #97b79b;
+    border-radius: 5px;
+}
+
+    .dog img {
+        text-align: center;
+        font-size: 3em;
+    }
+
+.text {
+    margin: 1em;
+}
+
+.infoBoxes {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 5em 0;
+}
+
+.box {
+    width: 25%;
+    text-align: center;
+}
+
+    .box p {
+        font-size: 1.1em;
+        line-height: 2.5em;
+        color: #0d2b00;
+    }
+
+.focus {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    background-color: white;
+}
+
+.dogFocus {
+    width: 25%;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 5rem 0;
+    font-family: 'Long Cang', cursive;
+    font-size: 2em;
+    line-height: 0;
+    transition: transform .2s;
+}
+
+    .dogFocus:hover {
+        transform: scale(1.1);
+    }
+
+
+.dogFocus img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    height: 400px;
+    width: 400px;
+    background-color: white;
+}
+
+.picDefault {
+    object-fit: scale-down;
+    border: 1px solid #c6c6c6ff;
+}
+
+.picCustom {
+    object-fit: cover;
+}
+
+hr {
+    border: 0.5px solid #749467;
+    margin: -1em 0 2em 0;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.oneDog {
+    margin-right: 5em;
+}
+
+.oneDog img {
+    display: block;
+    margin: 0 auto 4em auto;
+    border-radius: 50%;
+    height: 400px;
+    width: 400px;
+    background-color: white;
+}
+
+/*Links ------------------------------------------------------*/
+a {
+    text-decoration: none;
+    color: #1c5b01;
+    /*#ff3bd1;*/
+}
+
+    a:hover {
+        color: #2f9503;
+    }
+
+p a {
+    color: #1c5b01;
+    font-weight: bold;
+}
+
+nav a {
+    color: #1c5b01;
+    text-transform: uppercase;
+}
+
+    nav a:hover {
+        color: #412b0a;
+    }
+
+.button {
+    padding: 1em;
+    background-color: #f8fef5;
+    background-image: linear-gradient(45deg, #f8fef5, #c8fbce);
+    border: 1px solid #1c5b01;
+    border-radius: 5px;
+}
+
+    .button:hover {
+        background-image: linear-gradient(45deg, #c8fbce, #f8fef5);
+    }
+
+.oneDog div .button {
+    margin: 1em 0 0 0;
+    display: block;
+    justify-content: center;
+    text-align: center;
+}
+
+.name {
+    color: #ff3bd1;
+}
+
+.contactWrapper {
+    display:flex;
+    justify-content: space-between
+}
+
+.social {
+    display: flex;
+}
+
+/*Lists ------------------------------------------------------*/
+ul {
+    list-style: none;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+}
+
+nav li {
+    margin-left: 2em;
+    display:flex;
+    align-items: center;
+}
+
+.logoutForm {
+    display: flex;
+    align-items: center;
+}
+
+
+/*Tables -----------------------------------------------*/
+
+.containerTable {
+    margin: 5em auto 0 auto;
+    padding: 2em;
+    width: 80%;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+}
+
+thead {
+    width: 100%;
+}
+
+tr {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #749467;
+}
+
+th {
+    width: 100%;
+    text-align: left;
+}
+
+td {
+    width: 100%;
+    padding: 1em 0;
+}
+
+
+dt {
+    font-weight: bold;
+}
+
+dd{
+    margin-bottom: 2em;
+}
+
+
+
+/*Forms -----------------------------------------------*/
+.dogPerson {
+    background-color: white;
+    padding: 2em;
+    border-radius: 5px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: #1c5b01;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    padding: 1em;
+    background-color: #f8fef5;
+    background-image: linear-gradient(45deg, #f8fef5, #c8fbce);
+    border: 1px solid #1c5b01;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #1c5b01;
+}
+
+    input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+        background-image: linear-gradient(45deg, #c8fbce, #f8fef5);
+    }
+
+
+input[type=text], select {
+    width: 100%;
+    padding: 1em 2em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/*Typography -----------------------------------------------*/
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    font-size: 2.5em;
+    background-color: #ffffffa5;
+    color: #1c5b01;
+    font-weight: 700;
+    text-align: center;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #1c5b01;
+    margin-bottom: 1.5em;
+    font-family: 'Long Cang', cursive;
+}
+
+p {
+    margin: 0 0 1em 0;
+}
+
+.container p {
+    color: #0d2b00;
+}
+
+.bannerText {
+    position: absolute;
+    top: 10%;
+    left: 2%;
+    padding: 1em;
+    font-size: 10em;
+    color: #ffffffc2;
+    font-weight: bold;
+    transform: rotate(-10deg);
+    font-family: 'Long Cang', cursive;
+}
+
+.bannerText2 {
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    padding: 1em 1em 0 1em;
+    font-size: 1.5em;
+    background-color: #c9e1cc72;
+    color: #1c5b01;
+    font-weight: bold;
+    border-radius: 5px;
+    transform: rotate(-10deg);
+}
+
+.bannerText3 {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.bannerText p {
+    margin-bottom: 0;
+}
+
+.ingress {
+    color: #412b0a;
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+.motto {
+    font-style: italic;
+    color: #412b0a;
+    text-align: center;
+    margin-top: 3em;
+}
+
+.footerText {
+    font-style: italic;
+    color: #412b0a;
+}
+
+.bannerText3 h2 {
+    margin-bottom: 0;
+}
+
+

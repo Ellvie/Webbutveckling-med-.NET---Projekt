@@ -1,0 +1,53 @@
+﻿@model Webbutveckling_med_.NET___Projekt.Models.Person
+
+@{
+	ViewData["Title"] = "Details Person";
+}
+<div class="container">
+	<h1>Details Person</h1>
+
+	<hr />
+	<dl class="row dogPerson">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Firstname)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Firstname)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Lastname)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Lastname)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.PhoneNr)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.PhoneNr)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Email)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Email)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.City)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.City)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Description)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Description)
+		</dd>
+	</dl>
+
+	<div>
+		<a asp-action="Edit" asp-route-id="@Model?.PersonId">Edit</a> |
+		<a asp-action="Index">Back to List</a>
+	</div>
+</div>

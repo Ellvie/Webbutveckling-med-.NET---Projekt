@@ -1,0 +1,110 @@
+﻿@model Webbutveckling_med_.NET___Projekt.Models.Dog
+
+@{
+    ViewData["Title"] = "Edit Dog";
+}
+<div class="container">
+<h1>Edit Dog</h1>
+
+<hr />
+<div class="row">
+    <div class="formWrapper">
+        <form asp-action="Edit" enctype="multipart/form-data" class="dogPerson">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="DogId" />
+
+            <!--Name-->
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span><br><br>
+            </div>
+            <!--Gender-->
+            <div class="">
+              <label for="gender">Gender:</label><br>
+              <input  type="radio" id="male" name="gender" value="Male" asp-for="Gender" required>
+              <label for="male">Male</label><br>
+
+              <input type="radio" id="female" name="gender" value="Female" asp-for="Gender">
+              <label for="female">Female</label><br><br>
+            </div>
+            <!--Age-->
+            <div class="form-group">
+                <label for="age">Choose age:</label>
+                <select id="age" name="age" asp-for="Age" required>
+                <option></option>
+                @for (int i = 0; i<4; i++)
+                {
+                    <option value="@i weeks">@i weeks</option>
+                }
+                @for (int i = 1; i<12; i++)
+                {
+                    <option value="@i months">@i months</option>
+                }
+                @for (int i = 1; i<21; i++)
+                {
+                    <option value="@i years">@i years</option>
+                }
+                </select><br><br>
+            </div>
+            <!--Breed-->
+            <div class="form-group">
+                <label for="breed">Choose a breed:</label>
+                <select required id="breed" name="breed" asp-for="Breed">
+                  <option></option>
+                  <option value="Poodle">Poodle</option>
+                  <option value="Jack Russel">Jack Russsel</option>
+                  <option value="Golden Retriver">Golden Retriver</option>
+                  <option value="Bulldog">Bulldog</option>
+                </select><br><br>
+            </div>
+            <!--Upload-->
+            <div class="form-group">
+              <label asp-for="Upload">Picture:</label><br>
+              <input type="file" id="upload" name="upload" asp-for="Upload"><br><br>
+            </div>
+            <!--Pic-->
+            <div class="form-group">
+                <input asp-for="Pic" class="form-control" type="hidden" value="@Model.Pic"/>
+                <span asp-validation-for="Pic" class="text-danger"></span>
+            </div>
+            <!--Description-->
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="5" ></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span><br><br>
+            </div>
+            <!--Reserved-->
+            <div class="">
+              <label for="reserved">Reserved:</label><br>
+              <input  type="radio" id="yesR" name="reserved" value="true" asp-for="Reserved" required>
+              <label for="yes">Yes</label><br>
+
+              <input type="radio" id="noR" name="reserved" value="false" asp-for="Reserved">
+              <label for="no">No</label><br><br>
+            </div>
+
+            <!--Adopted-->
+            <div class="">
+              <label for="adopted">Adopted:</label><br>
+              <input  type="radio" id="yesA" name="adopted" value="true" asp-for="Adopted" required>
+              <label for="yes">Yes</label><br>
+
+              <input type="radio" id="noA" name="adopted" value="false" asp-for="Adopted">
+              <label for="no">No</label><br><br><br><br>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</div>

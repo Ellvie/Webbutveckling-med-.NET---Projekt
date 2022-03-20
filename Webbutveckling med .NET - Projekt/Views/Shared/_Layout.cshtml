@@ -1,0 +1,67 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Voff Rescue</title>
+    
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
+</head>
+<body>
+    <header>
+        <nav>
+                <div class="logo">
+                    <a  asp-area="" asp-controller="Home" asp-action="Index"><img  src="~/pics/default.png" class="logoPic" /></a>
+                    <a  asp-area="" asp-controller="Home" asp-action="Index" class="logoText">Voff Rescue</a>
+                </div>
+                
+                
+                <div class="navbar">
+                    <ul>
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="OurDogs">Our Dogs</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="About">About</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                        </li>
+
+                        @if (SignInManager.IsSignedIn(User))
+                    {
+                         <li>
+                            <a asp-area="" asp-controller="Dogs" asp-action="Index">Add Dog</a>
+                        </li>  
+                    }
+                   
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            
+        </nav>
+    </header>
+    
+        <main>
+            @RenderBody()
+        </main>
+    
+
+    <footer>
+        <div>
+            Voff Rescue &copy; 2022
+        </div>
+    </footer>
+    
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
