@@ -1,0 +1,21 @@
+﻿@{
+	ViewData["Title"] = "Dog Application";
+}
+
+<div class="container">
+
+	<h1>Application</h1>
+	
+	<hr />
+	<div class="dogPerson">
+		
+		<p>Thank you for your application. The staff at Voff Rescue will review the application and then contact you as soon as possible. Your dog will be marked as reserved in our database until the adoption has been fully completed.</p>
+	</div>
+
+	@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+	}
+
+</div>

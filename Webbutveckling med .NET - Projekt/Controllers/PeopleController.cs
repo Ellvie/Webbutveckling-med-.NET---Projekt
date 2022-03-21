@@ -71,13 +71,15 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
                 person.Dog.Add(dog);
                 _context.Add(person);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View("Thanks", person);
             }
-            return View("");
+            
+            return View("OurDogs");
         }
 
-        // GET: People/Edit/5
-        [Authorize]
+
+            // GET: People/Edit/5
+            [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -138,7 +140,7 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
                 return NotFound();
             }
 
-            var person = await _context.Person
+            var person = await _context.Person.Include(x => x.Dog)
                 .FirstOrDefaultAsync(m => m.PersonId == id);
             if (person == null)
             {
@@ -154,7 +156,10 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
         [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var person = await _context.Person.FindAsync(id);
+            var person = await _context.Person.Include(x => x.Dog).FirstOrDefaultAsync(m => m.PersonId == id);
+            var dog = _context.Dog.Find(person.Dog.FirstOrDefault().DogId);
+            dog.Adopted = false;
+            dog.Reserved = false;
             _context.Person.Remove(person);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
