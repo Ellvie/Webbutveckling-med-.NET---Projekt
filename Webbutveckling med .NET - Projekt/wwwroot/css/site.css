@@ -244,6 +244,41 @@ hr {
     display: none;
 }
 
+/*Login/Registration*/
+.background {
+    background-image: url("../pics/bone.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    margin: -1em 0 0 0;
+    padding: 5em;
+}
+
+.logReg {
+    background-color: white;
+}
+
+.logReg .row {
+    background-color: white;
+    text-align: left;
+}
+
+.formLogReg {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 2em 0;
+}
+
+.remember {
+    margin: 0 0 2em 0;
+}
+
+.formLogReg .button {
+    margin: 0 0 2em 0;
+}
+
 /*Links ------------------------------------------------------*/
 a {
     text-decoration: none;
@@ -275,6 +310,7 @@ nav a {
     background-image: linear-gradient(45deg, #f8fef5, #c8fbce);
     border: 1px solid #1c5b01;
     border-radius: 5px;
+    color: #1c5b01;
 }
 
     .button:hover {
@@ -398,7 +434,7 @@ input[type=button], input[type=submit], input[type=reset] {
     }
 
 
-input[type=text], select, textarea {
+input[type=text], select, textarea, #Input_Password, #Input_Email, #Input_ConfirmPassword {
     width: 100%;
     padding: 1em 2em;
     display: inline-block;
@@ -579,7 +615,7 @@ p {
         right: 0px;
         height: 100vh;
         top: 67px;
-        padding-bottom: 50%;
+        padding-bottom: 30%;
         background-color: white;
         display: flex;
         flex-direction: column;
@@ -655,6 +691,11 @@ p {
     .container {
         width: 100%;
     }
+
+    .containerTable {
+        padding: 1em;
+        width: 100%;
+    }
 }
 
 
@@ -727,11 +768,24 @@ p {
         text-align: center;
         margin: 5em 0;
     }
+
+    table {
+        font-size: 0.8em;
+    }
+
+    .dogPerson {
+        text-align: left;
+        margin: -3em 0;
+    }
 }
 
 
 /* max 600px */
 @media screen and (max-width: 600px) {
+    .container {
+        padding: 1em;
+    }
+
     .bannerText {
         top: 15%;
         left: 2%;
@@ -777,6 +831,23 @@ p {
     .oneDog img {
         height: 300px;
         width: 300px;
+    }
+
+    .contactWrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social {
+        justify-content: center;
+    }
+
+    .nav-links {
+        padding-bottom: 80%;
+    }
+
+    table {
+        font-size: 0.6em;
     }
 }
 

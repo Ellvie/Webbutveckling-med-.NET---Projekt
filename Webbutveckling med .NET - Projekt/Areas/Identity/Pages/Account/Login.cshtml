@@ -1,0 +1,51 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<div class="background">
+    <div class="container logReg">
+        <h1>@ViewData["Title"]</h1>
+        <hr />
+        <div class="row">
+                <section>
+                    <form id="account" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="formLogReg">
+                            <label asp-for="Input.Email" ></label>
+                            <input asp-for="Input.Email" autocomplete="username" aria-required="true" />
+                            
+                            <span asp-validation-for="Input.Email" ></span>
+                        </div>
+                        <div class="formLogReg">
+                            <label asp-for="Input.Password" ></label>
+                            <input asp-for="Input.Password" autocomplete="current-password" aria-required="true" />
+                            
+                            <span asp-validation-for="Input.Password" ></span>
+                        </div>
+                        <div>
+                            <div class="remember">
+                                <label asp-for="Input.RememberMe" >
+                                    <input asp-for="Input.RememberMe" />
+                                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="formLogReg">
+                            <button id="login-submit" type="submit" class="button">Log in</button>
+                        </div>
+                        <div>
+                            <p>
+                                <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                            </p>
+                        </div>
+                    </form>
+                </section>
+        </div>
+
+        @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+        }
+    </div>
+</div>
