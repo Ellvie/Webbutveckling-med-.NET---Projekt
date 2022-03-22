@@ -244,6 +244,12 @@ hr {
     display: none;
 }
 
+.white {
+    background-color: white;
+    padding: 2em;
+    border-radius: 5px;
+}
+
 /*Login/Registration*/
 .background {
     background-image: url("../pics/bone.jpg");
