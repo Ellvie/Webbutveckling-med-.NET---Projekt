@@ -2,38 +2,38 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-
+<!--If logged in show the following; -->
     @if (SignInManager.IsSignedIn(User))
-    {
-        <li class="nav-item">
-            <a asp-area="" asp-controller="People" asp-action="Index">People</a>
-        </li>
+{
+    <li>
+        <a asp-area="" asp-controller="Dogs" asp-action="Index">Add Dog</a>
+    </li>
 
-        <li class="nav-item">
-            <a asp-area="Identity" asp-page="/Account/Register">Register</a>
-        </li>
+    <li class="nav-item">
+        <a asp-area="" asp-controller="People" asp-action="Index">People</a>
+    </li>
 
-        <!--
-        <li class="nav-item">
-            <a  asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
-        </li>-->
+    <li class="nav-item">
+        <a asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </li>
 
-
-
-        <li class="nav-item">
-            <form class="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="logout"><img src="~/pics/logout.png" class="miniPic" /></button>
-            </form>
-        </li>
+    <li class="nav-item">
+        <form class="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button type="submit" class="logout"><img src="~/pics/logout.png" class="miniPic" alt="Logout. Picture of an arrow pointing to a door." /></button>
+        </form>
+    </li>
 
 
-    }
-    else
-    {
-        <li class="nav-item">
-            <a asp-area="Identity" asp-page="/Account/Login"><img src="~/pics/login.png" class="miniPic" /></a>
-        </li>
-    }
+}
+
+
+else
+{
+    <!--If not logged in show the following; -->
+    <li class="nav-item">
+        <a asp-area="Identity" asp-page="/Account/Login"><img src="~/pics/login.png" class="miniPic" alt="Login. Picture of a key." /></a>
+    </li>
+}
 </ul>
 
 <div class="burgernav">

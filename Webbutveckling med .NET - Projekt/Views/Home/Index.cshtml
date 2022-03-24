@@ -3,10 +3,10 @@
 }
 @model List<Dog>;
 
-    
+<!--Banner-->
 <div class="banner">
-    <img  src="~/pics/banner3.jpg" class="desktop" />
-    <img  src="~/pics/bannerMobil.jpg" class="mobile" />
+    <img  src="~/pics/banner3.jpg" class="desktop" alt="Banner that show many different breeds of dogs standing infront of a hot pink background."/>
+    <img  src="~/pics/bannerMobil.jpg" class="mobile" alt="Banner that show many different breeds of dogs standing infront of a hot pink background."/>
 </div>
 
 <div class="bannerText"><p>Voff Rescue</p></div>
@@ -15,6 +15,7 @@
 
 <div class="bannerText3"><h2>Dogs in focus ⬇</h2></div>
 
+<!--Dogs in focus-->
 <div class="focus">
 
         @foreach (var dog in Model)
@@ -22,7 +23,7 @@
              
             <div class="dogFocus">
                 <a asp-controller="Dogs" asp-action="Details" asp-route-id="@dog.DogId">
-                <img src="~/pics/@dog.Pic" alt="🐶" class="@(dog.Pic == "default.png" ? "picDefault" : "picCustom")">
+                <img src="~/pics/@dog.Pic" alt="Picture of a dog in focus" class="@(dog.Pic == "default.png" ? "picDefault" : "picCustom")">
                 </a>
                 <div class="text">
                     <p>@dog.Name</p>
@@ -31,6 +32,7 @@
         }
 </div>
 
+<!--Info boxes-->
 <div class="infoBoxes">
     <div class="box">
         <h3>Apply</h3>

@@ -19,11 +19,13 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
 
         public IActionResult Index()
         {
+            //Return all dogs that are not reserved or adopted and that has been on the dite for longest
             return View(_context.Dog.Include(x => x.Person).OrderBy(x=>x.Added).Where(x => x.Reserved == false && x.Adopted == false).Take(3).ToList());
         }
 
         public IActionResult OurDogs()
         {
+            //Return all dogs that are not reserved or adopted
             return View(_context.Dog.Include(x => x.Person).Where(x => x.Reserved == false && x.Adopted == false).ToList());
         }
 

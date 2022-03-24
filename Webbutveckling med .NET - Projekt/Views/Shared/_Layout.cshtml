@@ -8,6 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Voff Rescue</title>
+    <link rel="icon" href="~/pics/default.png" type="image/gif" sizes="16x16">
 
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
@@ -15,12 +16,13 @@
 <body>
     <header>
         <nav>
+            <!--Logo-->
             <div class="logo">
-                <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/pics/default.png" class="logoPic" /></a>
+                <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/pics/default.png" class="logoPic" alt="Outline of a dog looking to the side." /></a>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="logoText">Voff Rescue</a>
             </div>
 
-
+            <!--Nav-->
             <div class="navbar">
                 <ul class="nav-links">
                     <li>
@@ -36,15 +38,10 @@
                         <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                     </li>
 
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <li>
-                            <a asp-area="" asp-controller="Dogs" asp-action="Index">Add Dog</a>
-                        </li>
-                    }
 
-                
-                <partial name="_LoginPartial" />
+
+                    <!--Login Partial-->
+                    <partial name="_LoginPartial" />
 
 
 

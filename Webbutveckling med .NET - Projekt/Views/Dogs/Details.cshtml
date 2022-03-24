@@ -6,6 +6,8 @@
 @{
     ViewData["Title"] = "Dog Details";
 }
+
+<!--Dog details-->
 <div class="container">
     <h1>@Model.Name</h1>
 
@@ -13,7 +15,7 @@
 
     <div class="wrapper">
         <div class="oneDog">
-            <img src="~/pics/@Model.Pic" alt="🐶" class="@(Model.Pic == "default.png" ? "picDefault" : "picCustom")">
+            <img src="~/pics/@Model.Pic" alt="Picture of the dog." class="@(Model.Pic == "default.png" ? "picDefault" : "picCustom")">
 
             @if (SignInManager.IsSignedIn(User))
             {

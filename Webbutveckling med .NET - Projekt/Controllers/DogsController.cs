@@ -27,19 +27,24 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
+            //Return dog model with the person model included
             return View(await _context.Dog.Include(x => x.Person).ToListAsync());
         }
 
         // GET: Dogs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            //Check if id is null
             if (id == null)
             {
                 return NotFound();
             }
 
+            //Find dog by id
             var dog = await _context.Dog
                 .FirstOrDefaultAsync(m => m.DogId == id);
+
+            //Check if dog is null
             if (dog == null)
             {
                 return NotFound();
@@ -63,6 +68,7 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("DogId,Name,Age,Breed,Gender,Upload,Description,Reserved,Adopted")] Dog dog)
         {
+            //Check if model is valid
             if (ModelState.IsValid)
             {
                 //Check if picture is uploaded
@@ -88,6 +94,7 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
                     dog.Pic = "default.png";
                 }
 
+                //Add dog and save
                 _context.Add(dog);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -99,12 +106,16 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
         [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
+            //Check if id is null
             if (id == null)
             {
                 return NotFound();
             }
 
+            //Find dog by id
             var dog = await _context.Dog.FindAsync(id);
+
+            //Check if dog is null
             if (dog == null)
             {
                 return NotFound();
@@ -120,15 +131,19 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("DogId,Name,Gender,Age,Breed,Upload,Description,Reserved,Adopted,Pic")] Dog dog)
         {
+            //Check if id doesn't match dogId
             if (id != dog.DogId)
             {
                 return NotFound();
             }
 
+            //Check if model is valid
             if (ModelState.IsValid)
             {
+                //Try code and catch exceptions
                 try
                 {
+                    //Check if dog picture upload is not null
                     if (dog.Upload != null)
                     {
                         //Set filepath for pics folder in wwwroot
@@ -142,9 +157,11 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
                             dog.Upload.CopyTo(new FileStream(picture, FileMode.Create));
                         }
 
-                        //Set the picture i model
+                        //Set the picture in model
                         dog.Pic = dog.Upload.FileName;
                     }
+
+                    //Update and save
                     _context.Update(dog);
                     await _context.SaveChangesAsync();
                 }
@@ -168,13 +185,17 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
         [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
+            //Check if id is null
             if (id == null)
             {
                 return NotFound();
             }
 
+            //Find dog by id
             var dog = await _context.Dog
                 .FirstOrDefaultAsync(m => m.DogId == id);
+
+            //Check if dog is null
             if (dog == null)
             {
                 return NotFound();
@@ -189,7 +210,10 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            //Find dog by id
             var dog = await _context.Dog.FindAsync(id);
+
+            //Delete dog and save
             _context.Dog.Remove(dog);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

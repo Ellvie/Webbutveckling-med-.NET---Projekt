@@ -314,7 +314,7 @@ nav a {
     padding: 1em;
     background-color: #f8fef5;
     background-image: linear-gradient(45deg, #f8fef5, #c8fbce);
-    border: 1px solid #1c5b01;
+    border: 1px solid #9ac488;
     border-radius: 5px;
     color: #1c5b01;
 }
@@ -429,10 +429,12 @@ input[type=button], input[type=submit], input[type=reset] {
     padding: 1em;
     background-color: #f8fef5;
     background-image: linear-gradient(45deg, #f8fef5, #c8fbce);
-    border: 1px solid #1c5b01;
+    border: 1px solid #9ac488;
     border-radius: 5px;
     cursor: pointer;
     color: #1c5b01;
+    width: 100%;
+    font-weight: bold;
 }
 
     input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {

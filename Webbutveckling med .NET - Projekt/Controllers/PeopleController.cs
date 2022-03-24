@@ -25,6 +25,7 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
+            //Include dog in the person model
             return View(await _context.Person.Include(x => x.Dog).ToListAsync());
         }
 
@@ -37,8 +38,10 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
                 return NotFound();
             }
 
+            //Find person by id
             var person = await _context.Person
                 .FirstOrDefaultAsync(m => m.PersonId == id);
+
             if (person == null)
             {
                 return NotFound();
@@ -50,7 +53,7 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
         // GET: People/Create
         public IActionResult Create(int id)
         {
-
+            //Viewbags with data
             ViewBag.Dog = _context.Dog.Find(id);
             ViewBag.DogId = id;
 
@@ -64,13 +67,23 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PersonId,Firstname,Lastname,PhoneNr,Email,City,DogId,Description")] Person person)
         {
+            //Check if the model is valid
             if (ModelState.IsValid)
             {
+                //Find the dog by the dogid in person model and save in variable
                 var dog = _context.Dog.Find(person.DogId);
+
+                //Set the dog to reserved
                 dog.Reserved = true;
+
+                //Add the dog to person model
                 person.Dog.Add(dog);
+
+                //Save
                 _context.Add(person);
                 await _context.SaveChangesAsync();
+
+                //Return "thanks" view and person model
                 return View("Thanks", person);
             }
             
@@ -87,6 +100,7 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
                 return NotFound();
             }
 
+            //Find person by id
             var person = await _context.Person.FindAsync(id);
             if (person == null)
             {
@@ -103,20 +117,25 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("PersonId,Firstname,Lastname,PhoneNr,Email,City")] Person person)
         {
+            //Check if id doesn't match personId
             if (id != person.PersonId)
             {
                 return NotFound();
             }
 
+            //Check if the model is valid
             if (ModelState.IsValid)
             {
+                //Try code and catch exception
                 try
                 {
+                    //Update person
                     _context.Update(person);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
+                    //If person doesn't exist
                     if (!PersonExists(person.PersonId))
                     {
                         return NotFound();
@@ -135,13 +154,17 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
         [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
+            //Check if id is null
             if (id == null)
             {
                 return NotFound();
             }
 
+            //Include Dog in Person model
             var person = await _context.Person.Include(x => x.Dog)
                 .FirstOrDefaultAsync(m => m.PersonId == id);
+
+            //Check if person is null
             if (person == null)
             {
                 return NotFound();
@@ -156,10 +179,19 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
         [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            //Include dog in person model and find person by id
             var person = await _context.Person.Include(x => x.Dog).FirstOrDefaultAsync(m => m.PersonId == id);
+
+            //Find the dog that's attached to the person
             var dog = _context.Dog.Find(person.Dog.FirstOrDefault().DogId);
+
+            //Set that dog is not adopted
             dog.Adopted = false;
+
+            //Set that dog is not reserved
             dog.Reserved = false;
+
+            //Delete person and save
             _context.Person.Remove(person);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -170,9 +202,11 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
             return _context.Person.Any(e => e.PersonId == id);
         }
 
+        //GET - Reserved
         [Authorize]
         public IActionResult Reserved()
         {
+            // Get all people that has reserved a dog and the dog in question
             var filteredList = (from person in _context.Person.Include(x => x.Dog).ToList()
                                 from dog in person.Dog
                                 where dog.Reserved
@@ -181,9 +215,11 @@ namespace Webbutveckling_med_.NET___Projekt.Controllers
             return View("Index",filteredList);
         }
 
+        //GET - Adopted
         [Authorize]
         public IActionResult Adopted()
         {
+            //Get all people that has adopted a dog and the dog in question
             var filteredList = (from person in _context.Person.Include(x => x.Dog).ToList()
                                 from dog in person.Dog
                                 where dog.Adopted

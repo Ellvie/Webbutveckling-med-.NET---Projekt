@@ -4,24 +4,22 @@
 
 @model List<Dog>;
 
-
+<!--Page header-->
 <div class="ourDogs">
     <div class="header">
-        <img src="~/pics/green.jpg" class="headerPic"/>
+        <img src="~/pics/green.jpg" class="headerPic" alt="Header picture. Small dog on green background."/>
         <h2>@ViewData["Title"]</h2>
     </div>
 </div>
 
 
-
+<!--Dogs in database-->
 <div class="dogWrapper">
-
         @foreach (var dog in Model)
         {
-             
             <div class="dogFocus">
                 <a asp-controller="Dogs" asp-action="Details" asp-route-id="@dog.DogId">
-                <img src="~/pics/@dog.Pic" alt="🐶" class="@(dog.Pic == "default.png" ? "picDefault" : "picCustom")">
+                <img src="~/pics/@dog.Pic" alt="Picture of the dog." class="@(dog.Pic == "default.png" ? "picDefault" : "picCustom")">
                 </a>
                 <div class="text">
                     <p>@dog.Name</p>

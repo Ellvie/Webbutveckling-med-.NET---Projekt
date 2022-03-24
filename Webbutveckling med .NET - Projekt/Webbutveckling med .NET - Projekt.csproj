@@ -1,4 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
+	
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -6,6 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-Webbutveckling_med_.NET___Projekt-2CADC1B3-E06A-47CB-BAC6-62944B59423C</UserSecretsId>
     <RootNamespace>Webbutveckling_med_.NET___Projekt</RootNamespace>
+	  <ScopedCssEnabled>false</ScopedCssEnabled>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,5 +26,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2" />
   </ItemGroup>
+
+    
 
 </Project>
