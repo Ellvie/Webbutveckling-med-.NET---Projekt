@@ -889,3 +889,44 @@ p {
         width: 200px;
     }
 }
+
+/*Max height 800px*/
+@media screen and (max-height: 800px) {
+    .bannerText2 {
+        top: 55%;
+        left: 10%;
+    }
+}
+
+/*Max height 600px*/
+@media screen and (max-height: 600px) {
+    .bannerText2 {
+        top: 65%;
+        left: 10%;
+    }
+}
+
+/*Max height 500px*/
+@media screen and (max-height: 500px) {
+    .bannerText2 {
+        top: 80%;
+        left: 10%;
+    }
+}
+
+
+/*Max height 400px*/
+@media screen and (max-height: 400px) {
+    .bannerText2 {
+        top: 90%;
+        left: 10%;
+    }
+}
+
+/*Max height 330px*/
+@media screen and (max-height: 330px) {
+    .bannerText2 {
+        top: 100%;
+        left: 10%;
+    }
+}
